@@ -1,0 +1,19 @@
+{% macro base( options ) %}
+    <a class="ws-circle" href="">
+        {{ 
+            img.responsive({
+                src: options.imageSrc,
+                srcset: [
+                    { "width": 303, "height": 303 },
+                    { "width": 390, "height": 390 },
+                    { "width": 494, "height": 494 }
+                ],
+                altText: options.altText,
+                classname: 'ws-circle__img'
+            }) 
+        }}
+
+        <span class="ws-btn ws-circle__btn">{{ btnText || 'Shop category' }}</span>
+    </a>
+    <!--/ ws-circle -->
+{% endmacro %}

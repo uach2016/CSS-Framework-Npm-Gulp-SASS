@@ -1,0 +1,34 @@
+{% import '../../components/core/box/box.html' as box %}
+{% import '../../components/core/banner/banner.html' as banner %}
+{% import '../../components/core/circle/circle.html' as circle %}
+{% import '../../components/core/stacked/stacked.html' as stacked %}
+{% import '../../components/core/image.html' as img %}
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="https://static.whitestuff.com/_prod_live/INTERSHOP/static/WFS/WhiteStuff-UK-Site/-/-/en_GB/css/theme.css">
+    <link rel="stylesheet" href="/static/content.css">
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    <div class="container">
+        {% block body %}
+        {% endblock %}
+    </div>
+
+    <!-- 
+        DEV SCRIPTS
+        Note. These are not for WS inclusion, they are used for development purposes only 
+    -->
+    <script src="/vendor/lazysizes/lazysizes.min.js"></script>
+    <!--/ DEV SCRIPTS -->
+
+    <script src="/static/content.js"></script>
+</body>
+</html>

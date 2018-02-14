@@ -1,0 +1,17 @@
+/*****************************************
+    Module: Banner
+ ******************************************/
+
+ .ws-banner {
+    margin: 0 -10px 45px;
+    display: block;
+    position: relative;
+    
+    @include ratio-container(767, 767);
+
+    @media (min-width: 768px) {
+        margin: 0;
+        height: auto;
+        @include ratio-container(968, 220);
+    }
+}

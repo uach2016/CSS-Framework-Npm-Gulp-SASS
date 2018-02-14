@@ -1,0 +1,26 @@
+{% macro base( options ) %}
+    <a class="ws-stacked {{ options.modifier }}" href="">
+        <div class="ws-stacked__img"  data-responsive-background-image>
+            {{ 
+                img.responsive({
+                    src: options.imageSrc,
+                    srcset: [
+                        { "width": 173, "height": 136 },
+                        { "width": 228, "height": 176 },
+                        { "width": 285, "height": 220 },
+                        { "width": 480, "height": 307 },
+                        { "width": 767, "height": 593 }
+                    ],
+                    altText: options.altText
+                }) 
+            }}
+        </div>
+
+        {% if options.title %}
+            <h2 class="ws-stacked__heading">{{ options.title }}</h2>
+        {% endif %}
+
+        <span class="ws-btn ws-btn--secondary">{{ options.btnText || 'Shop category' }}</span>
+    </a>
+    <!--/ ws-module -->
+{% endmacro %}

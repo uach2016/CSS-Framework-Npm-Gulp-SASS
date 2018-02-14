@@ -1,0 +1,31 @@
+{% macro responsive( options ) %}
+    {% set options = options|default({}) %}
+    {% set options.src = options.src|default(imageSrc) %}
+    {% set options.srcset = options.srcset|default([
+            { "width": 355, "height": 355 },
+            { "width": 465, "height": 465 },
+            { "width": 580, "height": 580 },
+            { "width": 752, "height": 752 }
+        ])
+    %}
+    {% set options.lazyload = options.lazyload || !options.lazyload and options.lazyload !== false %}
+
+    <img 
+        {% if options.lazyload %}
+            class="lazyload {{options.classname}}"
+            srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+        {% else %}
+            class="{{options.classname}}"
+        {% endif %}
+
+        src="{{ options.src|replace('{width}', options.srcset|last.width)|replace('{height}', options.srcset|last.height) }}"
+
+        {% if options.lazyload %}data-{% endif %}sizes="{{ options.sizes || 'auto' }}" 
+
+        {% if options.lazyload %}data-{% endif %}srcset="
+            {% for item in options.srcset %}
+                {{ options.src|replace('{width}', item.width)|replace('{height}', item.height) }} {{item.width}}w,
+            {% endfor %}
+        "
+        alt="{{options.altText}}">
+{% endmacro %}

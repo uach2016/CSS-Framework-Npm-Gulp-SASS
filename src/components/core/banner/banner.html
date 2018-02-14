@@ -1,0 +1,29 @@
+{% macro base( options ) %}
+    {% set options = options|default({}) %}
+    {% set options.src = options.src|default(imageSrc) %}
+    {% set options.srcset = [
+            { "width": 720, "height": 164 },
+            { "width": 940, "height": 214 },
+            { "width": 1170, "height": 266 }
+        ]
+    %}
+    {% set options.mobileSrc = options.mobileSrc|default(imgUrl|replace('{width}', 767)|replace('{height}', 767)) %}
+
+    <a class="ws-banner {{options.modifier}}" href="" data-responsive-background-image>
+        <picture>       
+            <source
+                media="(min-width: 768px)"
+                srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                data-sizes="auto"
+                data-srcset="
+                    {% for item in options.srcset %}
+                        {{ options.src|replace('{width}', item.width)|replace('{height}', item.height) }} {{item.width}}w,
+                    {% endfor %}
+                ">
+            <img class="lazyload"
+                srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
+                src="{{ options.mobileSrc }}" alt="{{options.altText}}" data-srcset="{{ options.mobileSrc }}">
+        </picture>
+    </a>
+    <!--/ ws-banner -->
+{% endmacro %}

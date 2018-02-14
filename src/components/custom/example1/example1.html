@@ -1,0 +1,51 @@
+<a class="ws-box ws-box--offset-left ws-box--primary ws-box--example1" href="">
+
+    <div class="ws-box__img" data-responsive-background-image>
+            {{ 
+                img.responsive({
+                    src: 'http://via.placeholder.com/{width}x{height}/8a2be2/000', 
+                    srcset: [
+                        { "width": 480, "height": 244 },
+                        { "width": 768, "height": 390 },
+                        { "width": 1024, "height": 520 },
+                        { "width": 1280, "height": 650 },
+                        { "width": 1440, "height": 731 },
+                        { "width": 1600, "height": 813 },
+                        { "width": 1920, "height": 975 }
+                    ], 
+                    sizes: null, 
+                    altText: 'This is some alt text',
+                    lazyload: false
+                })
+            }}
+
+        <!-- Extra nested element -->
+        <div class="ws-box--example1__item1">
+            <img src="http://via.placeholder.com/200x200/000000" alt="" width="200" height="200">
+        </div>
+    
+        <!-- Extra nested element with background images -->
+        <div class="ws-box--example1__item2" data-responsive-background-image>
+                <img src="http://via.placeholder.com/200x200/000000" alt="" width="200" height="200">
+                {{ 
+                    img.responsive({
+                        src: 'http://via.placeholder.com/{width}x{height}/8a2be2/000', 
+                        srcset: [
+                            { "width": 240, "height": 112 },
+                            { "width": 480, "height": 225 },
+                            { "width": 960, "height": 450 }
+                        ], 
+                        sizes: '(min-width: 62em) 960px, (min-width: 48em) 480px, 240px', 
+                        altText: 'This is some alt text',
+                        lazyload: false
+                    })
+                }}
+        </div>
+    </div>
+    
+    <div class="ws-box__inner">
+        <h2 class="ws-box__heading">This is a custom box module</h2>
+        <span class="ws-btn ws-box__btn">Shop category</span>
+    </div>
+</a>
+<!--/ ws-box -->

@@ -1,0 +1,41 @@
+/*****************************************
+    Module: Circle
+ ******************************************/
+
+ .ws-circle {
+    text-align: center;
+    margin: 0 auto 45px;
+    padding: 0 5px;
+    display: block;    
+}
+
+.ws-circle__img  {
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 30px;
+}
+
+@media (min-width: 768px) {
+    .ws-circle {
+        margin: 22px;
+        padding: 0;
+
+        @include ratio-container(414, 414);
+    }
+
+    .ws-circle__img  {
+        margin: 0;
+        position: absolute;
+        left: 0;
+        top: 0;  
+        width: 100%;
+        height: 100%;
+    }
+
+    .ws-circle__btn  {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

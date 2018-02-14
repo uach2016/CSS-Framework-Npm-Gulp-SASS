@@ -1,0 +1,65 @@
+---
+title: Landing
+---
+
+{% extends "./layout/document.html" %}
+
+{% block head %}
+    <link href="https://fonts.googleapis.com/css?family=Lobster&text=This%20is%20a%20custom%20box%20module" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+    <div class="ws-content-block">
+        {{ 
+            box.offsetPrimary({
+                title: 'This is an offset box module with video',
+                video: {
+                    src: '/static/video-test.mp4'
+                },
+                modifer: 'ws-box--example3'
+            }) 
+        }}
+    </div>
+    <!--/ content-block -->
+
+    <div class="ws-content-block">
+        {% include '../components/custom/example1/example1.html' %}
+    </div>
+    <!--/ content-block -->
+
+    <div class="ws-content-block">
+        {{ 
+            box.offsetLarge({
+                title: 'This is an overidden title',
+                btnText: 'My custom button text',
+                imageSrc: imageSrc + '/8a2be2/000'
+            })
+        }}
+    </div>
+    <!--/ content-block -->
+
+    <div class="row">
+        
+        <div class="col-md-6 ws-content-block">
+            {{ 
+                box.base({
+                    title: 'This is an overidden title',
+                    btnText: 'My custom button text',
+                    modifier: 'ws-box--example2',
+                    imageSrc: imageSrc + '/E8117F/000'
+                })
+            }}
+        </div>
+        <!--/ content-block -->
+
+        <div class="col-md-6 ws-content-block">
+            {{ box.base() }}
+        </div>
+        <!--/ content-block -->
+
+    </div>
+    <!--/ row -->
+
+    
+{% endblock %}

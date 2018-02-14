@@ -1,0 +1,171 @@
+{% macro base( options ) %} 
+    <a class="ws-box {{ options.modifier }}" href="">
+
+        {% if options.video.src %}
+
+            <div class="ws-box__video">
+
+                {% if !options.video.useIframe %}
+                    <video autobuffer autoplay muted loop>
+                        <source id="mp4" src="{{ options.video.src }}" type="video/mp4">
+                    </video>
+                {% else %}
+                    <iframe src="{{ options.video.src }}" frameborder="0"></iframe>
+                {% endif %}
+
+            </div>
+
+        {% else %}
+
+            <div class="ws-box__img"  data-responsive-background-image>
+                {{ img.responsive( options.image ) }}
+            </div>
+
+        {% endif %}
+        
+        <div class="ws-box__inner">
+            <h2 class="ws-box__heading">{{ options.title || 'This is a box module' }}</h2>
+            <span class="ws-btn ws-box__btn">{{ options.btnText || 'Shop category' }}</span>
+        </div>
+    </a>
+    <!--/ ws-box -->
+{% endmacro %}
+
+
+{% macro large( options ) %}
+    {{ 
+        base({
+            title: options.title || 'This is a large box module',
+            btnText: options.btnText,
+            modifier: 'ws-box--lg',
+            image: {
+                src: options.imageSrc,
+                srcset: [
+                    { "width": 355, "height": 386 },
+                    { "width": 465, "height": 506 },
+                    { "width": 580, "height": 630 },
+                    { "width": 752, "height": 818 }
+                ],
+                lazyload: true,
+                altText: options.imageAlt
+            }
+        })
+    }}
+{% endmacro %}
+
+
+{% macro largeWide( options ) %}
+    {{ 
+        base({
+            title: options.title || 'This is a large wide box module',
+            btnText: options.btnText,
+            modifier: 'ws-box--lg ws-box--wide',
+            image: {
+                src: options.imageSrc,
+                srcset: [
+                    { "width": 720, "height": 387 },
+                    { "width": 940, "height": 505 },
+                    { "width": 1170, "height": 629 }
+                ],
+                lazyload: true,
+                altText: options.imageAlt
+            },
+            video: options.video
+        })
+    }}
+{% endmacro %}
+
+
+{% macro offsetPrimary( options ) %}
+    {{ 
+        base({
+            title: options.title || 'This is an offset box module',
+            btnText: options.btnText,
+            modifier: 'ws-box--offset-left ws-box--primary',
+            image: {
+                src: options.imageSrc,
+                sizes: '100vw',
+                srcset: [
+                    { "width": 480, "height": 244 },
+                    { "width": 768, "height": 390 },
+                    { "width": 1024, "height": 520 },
+                    { "width": 1280, "height": 650 },
+                    { "width": 1440, "height": 731 },
+                    { "width": 1600, "height": 813 },
+                    { "width": 1920, "height": 975 }
+                ],
+                lazyload: false,
+                altText: options.imageAlt
+            },
+            video: options.video
+        })
+    }}
+{% endmacro %}
+
+
+{% macro offsetLarge( options ) %}
+    {{ 
+        base({
+            title: options.title || 'This is an offset box module', 
+            btnText: options.btnText, 
+            modifier: 'ws-box--lg ws-box--wide ws-box--offset-left',
+            image: {   
+                src: options.imageSrc,
+                sizes: '(min-width: 75em) 1170px, (min-width: 62em) 940px, (min-width: 48em) 720px, 100vw',
+                srcset: [
+                    { "width": 720, "height": 387 },
+                    { "width": 940, "height": 505 },
+                    { "width": 1170, "height": 629 }
+                ],
+                lazyload: true,
+                altText: options.imageAlt
+            },
+            video: options.video
+        })
+    }}
+{% endmacro %}
+
+
+{% macro inset( options ) %}
+    {{ 
+        base({
+            title: options.title || 'This is an inset box module', 
+            btnText: options.btnText, 
+            modifier: 'ws-box--inset',
+            image: {   
+                src: options.imageSrc,
+                srcset: [
+                    { "width": 366, "height": 332 },
+                    { "width": 468, "height": 424 },
+                    { "width": 767, "height": 695 }
+                ],
+                lazyload: true,
+                altText: options.imageAlt
+            }
+        })
+    }}
+{% endmacro %}
+
+
+{% macro insetAlt( options ) %}
+    {{ 
+        base({
+            title: options.title || 'This is an alternative inset box module', 
+            btnText: options.btnText, 
+            modifier: 'ws-box--inset-alt',
+            image: {   
+                src: options.imageSrc,
+                srcset: [
+                    { "width": 366, "height": 414 },
+                    { "width": 468, "height": 535 },
+                    { "width": 767, "height": 877 }
+                ],
+                lazyload: true,
+                altText: options.imageAlt
+            }
+        })
+    }}
+{% endmacro %}
+
+
+

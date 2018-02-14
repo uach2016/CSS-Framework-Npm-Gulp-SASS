@@ -1,0 +1,64 @@
+---
+title: Homepage
+---
+
+{% extends "./layout/document.html" %}
+
+{% block body %}
+
+    <div class="ws-content-block">
+        {{ box.offsetPrimary() }}
+    </div>
+    <!--/ content-block -->
+
+    <div class="row">
+        
+        <div class="col-sm-6 ws-content-block">
+            {{ box.large() }}
+        </div>
+        <!--/ content-block -->
+
+        <div class="col-sm-6 ws-content-block">
+            {{ box.large() }}
+        </div>
+        <!--/ content-block -->
+
+    </div>
+    <!--/ row -->
+
+    <div class="ws-content-block">
+        {{ box.largeWide() }}
+    </div>
+    <!--/ content-block -->
+
+    <div class="ws-content-block">
+        {{ banner.base() }}
+    </div>
+    <!--/ content-block -->
+
+    <div class="row">
+        
+        <div class="col-sm-3 ws-content-block">
+            {{ stacked.base({ title: 'This is a stacked module title' }) }}
+        </div>
+        <!--/ content-block -->
+
+        <div class="col-sm-3 ws-content-block">
+            {{ stacked.base({ title: 'This is a stacked module title' }) }}
+        </div>
+        <!--/ content-block -->
+
+        <div class="col-sm-3 ws-content-block">
+            {{ stacked.base({ title: 'This is a stacked module title' }) }}
+        </div>
+        <!--/ content-block -->
+
+        <div class="col-sm-3 ws-content-block">
+            {{ stacked.base({ title: 'This is a stacked module title' }) }}
+        </div>
+        <!--/ content-block -->
+
+    </div>
+    <!--/ row -->
+    
+{% endblock %}
